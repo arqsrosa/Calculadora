@@ -47,16 +47,7 @@
 .numero:hover{
     background-color: white;
 }
-#previsaoResultado{
-    width: auto;
-    height: 20px;
-    margin: 5px;
-    font-size: 12px;
-    color: rgb(255, 255, 255);
-    text-align: left;
-    padding: 5px;
-    overflow-wrap: break-word;
-}
+
 #resultado{
     background-color: white;
     width: auto;

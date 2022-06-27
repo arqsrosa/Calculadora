@@ -15,14 +15,13 @@
             <h2>Calculadora</h2>
         
             <div class="operacao">
-                <div id="previsaoResultado"></div>
                 <div id="resultado"></div>
             </div>
         <div id="buttonsConjunto">    
             <table>
                 <tr>
-                    <td><button class="botao" onclick="clear()">C</button></td>
-                    <td><button class="botao" onclick="insert('()')">()</button></td>
+                    <td><button class="botao" onclick="clean()">C</button></td>
+                    <td><button class="botao" onclick="back()">del</button></td>
                     <td><button class="botao" onclick="insert('%')">%</button></td>
                     <td><button class="botao" onclick="insert('/')">/</button></td>
                 </tr>
@@ -45,10 +44,9 @@
                     <td><button class="botao" onclick="insert('+')">+</button></td>
                 </tr>
                 <tr>
-                    <td><button class="botao" onclick="insert('+/-')">+/-</button></td>
-                    <td><button class="botao" onclick="insert('0')">0</button></td>
+                    <td colspan="2"><button class="botao" style="width: 106px;" onclick="insert('0')">0</button></td>
                     <td><button class="botao" onclick="insert(',')">,</button></td>
-                    <td><button class="botao" onclick="insert('=')">=</button></td>
+                    <td><button class="botao" onclick="calcular()">=</button></td>
                 </tr>
             </table>
             </div>
@@ -56,17 +54,32 @@
     </div>
 
 <script>
-    function insert(num)
-    {
-        var numero = document.getElementById('resultado').innerHTML;
-        document.getElementById('resultado').innerHTML = numero + num;
-    }
-    function clear()
-    {
-        document.getElementById('resultado').innerHTML " ";
-    }
-
-</script>
-
+        function insert(num)
+        {
+            var numero = document.getElementById('resultado').innerHTML;
+            document.getElementById('resultado').innerHTML = numero + num;
+        }
+        function clean()
+        {
+            document.getElementById('resultado').innerHTML = "";
+        }
+        function back()
+        {
+            var resultado = document.getElementById('resultado').innerHTML;
+            document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
+        }
+        function calcular()
+        {
+            var resultado = document.getElementById('resultado').innerHTML;
+            if(resultado)
+            {
+                document.getElementById('resultado').innerHTML = eval(resultado);
+            }
+            else
+            {
+                document.getElementById('resultado').innerHTML = "Nada..."
+            }
+        }
+    </script>
 </body>
 </html>
